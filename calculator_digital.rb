@@ -1,11 +1,12 @@
+#ARRAYS
 @historic = []
 @memory = []
 
-
+# INITIAL VARIABLE SETTING
 @a = 0
 @b = 0
 @x = ""
-
+# OTHER FUNCTIONS
 def history
   puts "--- Our great numeric history ---"
   puts ""
@@ -19,7 +20,7 @@ def reset
   @b = 0
   digital
 end
-
+#OPERATORS METHODS
 def plus
   puts "Calculating result..."
   puts (@a + @b).round(3)
@@ -65,7 +66,7 @@ def root
   a = @a
   root_result = Math.sqrt(a)
   puts root_result.round(3)
-  @historic << "square root of #{@a} = #{(root_result).round(3)}"
+  @historic << "square root of #{@a.round(3)} = #{(root_result).round(3)}"
   @a = root_result.round(3)
   digital_02
 end
@@ -87,6 +88,7 @@ def cosine
   @a = cosine_result
   digital_02
 end
+# OPERATOR REDIRECTER
 def result
 	case @x
     when '+'
@@ -112,7 +114,7 @@ def result
 	  end
 end
 
-
+#INITIAL INTERFASE
 def digital
   puts "Write your operation"
   puts "+|-|*|/|(p)ower|(r)oot|(s)in|c(o)sine|"
@@ -123,6 +125,7 @@ def digital
   @x = split_operation[1]
   result
 end
+#SECUNDARY INTERFASE
 def digital_02
   puts "Write your operation"
   puts "|+|-|*|/|(p)ower|(r)oot|(s)in|c(o)sine|"
@@ -144,7 +147,7 @@ def digital_02
     history
   elsif digi_operation_02.include?('m')
     @memory << @a
-    puts "Saved number.. #{@memory}"
+    puts "Saved number.. #{@memory[0]}" #MEMORY
     digital_02
   elsif digi_operation_02.include?('e')
     exit
@@ -152,6 +155,7 @@ def digital_02
     result
   end
 end
+# MAIN MENU
 def menu
   puts "---- DigitalEggAdder 3000 ----"
   puts "Press (1) to Calculate"
@@ -171,7 +175,7 @@ def menu
   end
 end
 
-
+# START
 while true
   menu
 end
