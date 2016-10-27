@@ -102,8 +102,8 @@ def digital
 end
 
 def menu
-  puts "---- Welcome to the super cool EggAdder 2000 ----"
-  puts "Press (1) for EggAdder"
+  puts "---- EggAdder 2000 ----"
+  puts "Press (1) to Calculate"
   puts "Press (2) for DigitalEggAdder"
   puts "Press (3) for exit"
   choice = gets.to_i
@@ -111,7 +111,7 @@ def menu
   when 1
     first
   when 2
-    digital
+    load 'calculator_digital.rb'
   when 3
     exit
   else
