@@ -7,15 +7,17 @@
 @x = ""
 
 def history
-  puts "--- Our great numeric history ---\n"
+  puts "--- Our great numeric history ---"
+  puts ""
   puts @historic[0..20]
+  puts "*" * 15
 end
 
 def reset
   puts 0
   @a = 0
   @b = 0
-  menu
+  digital
 end
 
 def plus
@@ -53,7 +55,7 @@ end
 def power
   puts "Calculating result..."
   puts (@a ** @a).round(3)
-  @historic << "#{@a} ** #{@a} = #{(@a ** @b).round(3)}"
+  @historic << "power of #{@a.round(3)} = #{(@a ** @b).round(3)}"
   @a = (@a ** @a).round(3)
   digital_02
 end
@@ -63,7 +65,7 @@ def root
   a = @a
   root_result = Math.sqrt(a)
   puts root_result.round(3)
-  @historic << "#{@a} r = #{(root_result).round(3)}"
+  @historic << "square root of #{@a} = #{(root_result).round(3)}"
   @a = root_result.round(3)
   digital_02
 end
@@ -72,6 +74,8 @@ def sin
   a = @a
   sin_result = (Math.sin(a))
   puts sin_result
+  @historic << "sin(#{@a.round(3)}) = #{sin_result.round(3)}"
+  @a = sin_result
   digital_02
 end
 def cosine
@@ -79,6 +83,8 @@ def cosine
   a = @a
   cosine_result = (Math.cos(a))
   puts cosine_result
+  @historic << "cosin(#{@a.round(3)}) = #{cosine_result.round(3)}"
+  @a = cosine_result
   digital_02
 end
 def result
@@ -120,7 +126,7 @@ end
 def digital_02
   puts "Write your operation"
   puts "|+|-|*|/|(p)ower|(r)oot|(s)in|c(o)sine|"
-  puts "|c| reset |h| history |m| memory save |u| memory use"
+  puts "|c| reset |h| history |m| memory save |u| memory use |e| exit"
   puts ""
   print @a
   digi_operation_02 = gets.strip
@@ -140,6 +146,8 @@ def digital_02
     @memory << @a
     puts "Saved number.. #{@memory}"
     digital_02
+  elsif digi_operation_02.include?('e')
+    exit
   else
     result
   end
